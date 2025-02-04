@@ -1,13 +1,13 @@
-1. 시스템 기본 설정
+# 맥북 초기 설정 가이드 (DevOps 엔지니어)
 
+이 가이드는 DevOps 엔지니어를 위한 맥북 초기 설정을 안내합니다. 시스템 기본 설정부터 Kubernetes 및 DevOps 도구 설치까지 포함되어 있습니다.
 
-macOS 업데이트: 최신 macOS로 업데이트하여 보안 및 성능을 최적화하세요. (2025년 현재, macOS Ventura 또는 그 이후 버전이 최신일 수 있습니다.)
-
-
-Xcode Command Line Tools: 개발 필수 도구를 설치합니다.
-xcode-select --install
-
-
+## 1. 시스템 기본 설정
+- **macOS 업데이트**: 최신 macOS로 업데이트하여 보안 및 성능을 최적화하세요. (2025년 현재, macOS Ventura 또는 그 이후 버전이 최신일 수 있습니다.)
+  
+- **Xcode Command Line Tools**: 개발 필수 도구를 설치합니다.
+  ```bash
+  xcode-select --install
 
 2. 패키지 관리자 - Homebrew 설치
 

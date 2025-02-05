@@ -21,26 +21,26 @@ ArgoCD를 GitLab과 연결하여 GitOps 기반의 CI/CD 환경을 구축하는 �
 - AWS EKS, GKE, AKS 등 다양한 환경에서 운영 가능
 - 클러스터 접근 권한 확인
 
-## **3. ArgoCD 설치**
+## **3. ArgoCD 설치**  
 
-`bash*# ArgoCD 네임스페이스 생성*
-kubectl create namespace argocd
+*# ArgoCD 네임스페이스 생성*  
+`kubectl create namespace argocd`
 
-*# ArgoCD 설치*
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml`
+*# ArgoCD 설치*   
+`kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml`
 
 ## **4. ArgoCD API 서버 접근 설정**
 
-*# 포트 포워딩 설정*
-`kubectl port-forward svc/argocd-server -n argocd 8080:443`
+*# 포트 포워딩 설정*  
+`kubectl port-forward svc/argocd-server -n argocd 8080:443`  
 
 ## **5. 초기 비밀번호 확인 및 변경**
 
-*# 초기 비밀번호 확인*
-`kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d `
+*# 초기 비밀번호 확인*  
+`kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d `  
 
-*# ArgoCD 로그인 및 비밀번호 변경*
-argocd login localhost:8080
+*# ArgoCD 로그인 및 비밀번호 변경*  
+`argocd login localhost:8080
 argocd account update-password`
 
 ## **6. ArgoCD에 GitLab 저장소 추가**
@@ -89,7 +89,7 @@ argocd account update-password`
 
 ## **로그 확인**
 
-`bashkubectl logs -n argocd deployment/argocd-server`
+`kubectl logs -n argocd deployment/argocd-server`
 
 ## **참고 문서**
 

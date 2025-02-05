@@ -31,13 +31,13 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 ## **4. ArgoCD API 서버 접근 설정**
 
-`bash*# 포트 포워딩 설정*
-kubectl port-forward svc/argocd-server -n argocd 8080:443`
+*# 포트 포워딩 설정*
+`kubectl port-forward svc/argocd-server -n argocd 8080:443`
 
 ## **5. 초기 비밀번호 확인 및 변경**
 
-`bash*# 초기 비밀번호 확인*
-kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+*# 초기 비밀번호 확인*
+`kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d `
 
 *# ArgoCD 로그인 및 비밀번호 변경*
 argocd login localhost:8080
@@ -45,8 +45,8 @@ argocd account update-password`
 
 ## **6. ArgoCD에 GitLab 저장소 추가**
 
-`bash*# CLI 사용*
-argocd repo add <GITLAB_REPO_URL> --username <USERNAME> --password <PERSONAL_ACCESS_TOKEN>`
+*# CLI 사용*
+`argocd repo add <GITLAB_REPO_URL> --username <USERNAME> --password <PERSONAL_ACCESS_TOKEN>`
 
 ## **7. 애플리케이션 생성**
 
@@ -97,6 +97,4 @@ argocd repo add <GITLAB_REPO_URL> --username <USERNAME> --password <PERSONAL_ACC
 - [GitLab 문서](https://docs.gitlab.com/)
 - [Kubernetes 문서](https://kubernetes.io/docs/)
 
-**공유**
 
-**다시 쓰기**

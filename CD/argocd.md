@@ -27,7 +27,7 @@ ArgoCD를 GitLab과 연결하여 GitOps 기반의 CI/CD 환경을 구축하는 �
 `kubectl create namespace argocd`
 
 *# ArgoCD 설치*   
-`kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml`
+`kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml`  
 
 ## **4. ArgoCD API 서버 접근 설정**
 
@@ -40,17 +40,20 @@ ArgoCD를 GitLab과 연결하여 GitOps 기반의 CI/CD 환경을 구축하는 �
 `kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d `  
 
 *# ArgoCD 로그인 및 비밀번호 변경*  
-`argocd login localhost:8080
-argocd account update-password`
+`argocd login ipaddr:80 --insecure`
+`argocd account update-password`
 
 ## **6. ArgoCD에 GitLab 저장소 추가**
 
-*# CLI 사용*
+*# CLI 사용*  
 `argocd repo add <GITLAB_REPO_URL> --username <USERNAME> --password <PERSONAL_ACCESS_TOKEN>`
 
-## **7. 애플리케이션 생성**
+## **7. ArgoCD에 cluster 추가**
+`argocd cluster add <클러스터 arn 명 : api server address>`
 
-`bashargocd app create <app-name> \
+## **8. 애플리케이션 생성**
+
+`argocd app create <app-name> \
   --repo <GITLAB_REPO_URL> \
   --path <PATH_TO_MANIFEST> \
   --dest-server https://kubernetes.default.svc \

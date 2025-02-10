@@ -1,2 +1,2 @@
-# o create a secure random hexadecimal string  
+# to create a secure random hexadecimal string  
 `$ openssl rand -hex 32`
